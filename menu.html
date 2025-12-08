@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thực đơn Starbucks Việt Nam - Khám phá đa dạng thức uống và món ăn ngon">
+  <title>Thực Đơn - Starbucks Việt Nam</title>
+  <link rel="icon" href="https://www.starbucks.com/favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="css/optimized.css">
+</head>
+<body>
+
+
+
+<!-- SIMPLE LOADING SCREEN -->
+<div class="loading-screen">
+    <div class="loading-logo">☕</div>
+    <div class="loading-text">ĐANG TẢI</div>
+    <div class="spinner"></div>
+</div>
+
+<!-- SCROLL PROGRESS BAR -->
+
+<!-- DARK MODE TOGGLE -->
+<button id="themeToggle" class="theme-toggle" title="Chuyển chế độ sáng/tối">
+  <span class="material-icons-outlined">dark_mode</span>
+</button>
+
+<div class="back-to-top">
+  <span class="material-icons-outlined">arrow_upward</span>
+</div>
+
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <div class="logo-circle me-3">
+        <span class="material-icons-outlined fs-4">local_cafe</span>
+      </div>
+      <span class="fw-bold text-uppercase fs-5 d-none d-sm-inline">Starbucks</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="material-icons-outlined">menu</span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+        <li class="nav-item"><a class="nav-link active" href="menu.html">Thực đơn</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Tin tức</a></li>
+        <li class="nav-item"><a class="nav-link" href="media.html">Thư viện</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-icon" title="Tìm kiếm">
+          <span class="material-icons-outlined">search</span>
+        </button>
+        <button class="btn btn-icon position-relative" title="Giỏ hàng">
+          <span class="material-icons-outlined">shopping_bag</span>
+          <span id="cartCountBadge" class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle small d-none">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+  <div id="cartToast" class="toast align-items-center text-bg-success border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body fw-semibold" id="cartToastMessage">Đã thêm vào giỏ hàng!</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<main class="pt-5">
+  <section class="container mt-5 pt-4">
+    <div class="position-relative overflow-hidden rounded-4 shadow-lg">
+      <div class="ratio ratio-21x9">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=800&q=90" alt="Thực đơn" class="object-cover">
+      </div>
+      <div class="position-absolute top-0 start-0 w-100 h-100" style="background:linear-gradient(135deg,rgba(30,57,50,0.95),rgba(0,112,74,0.5));"></div>
+      <div class="position-absolute top-50 start-50 translate-middle text-center text-white px-3">
+        <h1 class="display-4 fw-bold mb-3">Thực Đơn Starbucks</h1>
+        <p class="lead mb-0">Khám phá đa dạng thức uống và món ăn được chế biến tươi mỗi ngày</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5">
+    <div class="d-flex justify-content-center flex-wrap gap-3 mb-5">
+      <button class="btn btn-success text-white rounded-pill px-4 py-2 menu-filter-btn" data-filter="all">
+        <span class="material-icons-outlined align-middle me-2" style="font-size:20px;">apps</span>
+        Tất cả
+      </button>
+      <button class="btn btn-outline-success rounded-pill px-4 py-2 menu-filter-btn" data-filter="coffee">
+        <span class="material-icons-outlined align-middle me-2" style="font-size:20px;">coffee</span>
+        Cà phê Espresso
+      </button>
+      <button class="btn btn-outline-success rounded-pill px-4 py-2 menu-filter-btn" data-filter="frappuccino">
+        <span class="material-icons-outlined align-middle me-2" style="font-size:20px;">ac_unit</span>
+        Frappuccino®
+      </button>
+      <button class="btn btn-outline-success rounded-pill px-4 py-2 menu-filter-btn" data-filter="food">
+        <span class="material-icons-outlined align-middle me-2" style="font-size:20px;">restaurant</span>
+        Đồ ăn
+      </button>
+    </div>
+
+    <div class="row g-4">
+      <!-- Menu Items -->
+      <div class="col-md-6 menu-item-card" data-category="coffee">
+        <div class="d-flex p-4 bg-white rounded-4 shadow-lg h-100 gap-3">
+          <div class="flex-shrink-0">
+            <div class="rounded-circle overflow-hidden" style="width:110px;height:110px;">
+              <img src="https://images.unsplash.com/photo-1551030173-122f5236b58a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=450&q=90" alt="Americano" class="w-100 h-100 object-cover">
+            </div>
+          </div>
+          <div class="flex-grow-1 d-flex flex-column">
+            <h5 class="fw-bold mb-2">Caffè Americano</h5>
+            <p class="text-muted small mb-3">Espresso đậm đà pha với nước nóng, tạo nên hương vị sâu lắng</p>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <span class="fw-bold text-success fs-5">60.000 đ</span>
+              <button class="btn btn-success btn-sm rounded-pill add-to-cart-btn" data-item="Caffè Americano - 60.000 đ">
+                <span class="material-icons-outlined align-middle" style="font-size:16px;">add</span> Thêm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 menu-item-card" data-category="coffee">
+        <div class="d-flex p-4 bg-white rounded-4 shadow-lg h-100 gap-3">
+          <div class="flex-shrink-0">
+            <div class="rounded-circle overflow-hidden" style="width:110px;height:110px;">
+              <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=450&q=90" alt="Cappuccino" class="w-100 h-100 object-cover">
+            </div>
+          </div>
+          <div class="flex-grow-1 d-flex flex-column">
+            <h5 class="fw-bold mb-2">Cappuccino</h5>
+            <p class="text-muted small mb-3">Espresso với lớp bọt sữa dày mịn màng</p>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <span class="fw-bold text-success fs-5">75.000 đ</span>
+              <button class="btn btn-success btn-sm rounded-pill add-to-cart-btn" data-item="Cappuccino - 75.000 đ">
+                <span class="material-icons-outlined align-middle" style="font-size:16px;">add</span> Thêm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 menu-item-card" data-category="coffee">
+        <div class="d-flex p-4 bg-white rounded-4 shadow-lg h-100 gap-3">
+          <div class="flex-shrink-0">
+            <div class="rounded-circle overflow-hidden" style="width:110px;height:110px;">
+              <img src="https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=450&q=90" alt="Mocha" class="w-100 h-100 object-cover">
+            </div>
+          </div>
+          <div class="flex-grow-1 d-flex flex-column">
+            <h5 class="fw-bold mb-2">Caffè Mocha</h5>
+            <p class="text-muted small mb-3">Espresso, sốt sô cô la và sữa nóng hoàn hảo</p>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <span class="fw-bold text-success fs-5">85.000 đ</span>
+              <button class="btn btn-success btn-sm rounded-pill add-to-cart-btn" data-item="Caffè Mocha - 85.000 đ">
+                <span class="material-icons-outlined align-middle" style="font-size:16px;">add</span> Thêm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 menu-item-card" data-category="coffee">
+        <div class="d-flex p-4 bg-white rounded-4 shadow-lg h-100 gap-3">
+          <div class="flex-shrink-0">
+            <div class="rounded-circle overflow-hidden" style="width:110px;height:110px;">
+              <img src="https://images.unsplash.com/photo-1485808191679-5f8c7c860695?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=450&q=90" alt="Macchiato" class="w-100 h-100 object-cover">
+            </div>
+          </div>
+          <div class="flex-grow-1 d-flex flex-column">
+            <h5 class="fw-bold mb-2">Caramel Macchiato</h5>
+            <p class="text-muted small mb-3">Sữa vani đánh nóng với espresso và sốt caramel</p>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <span class="fw-bold text-success fs-5">80.000 đ</span>
+              <button class="btn btn-success btn-sm rounded-pill add-to-cart-btn" data-item="Caramel Macchiato - 80.000 đ">
+                <span class="material-icons-outlined align-middle" style="font-size:16px;">add</span> Thêm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 menu-item-card" data-category="frappuccino">
+        <div class="d-flex p-4 bg-white rounded-4 shadow-lg h-100 gap-3">
+          <div class="flex-shrink-0">
+            <div class="rounded-circle overflow-hidden" style="width:110px;height:110px;">
+              <img src="https://images.unsplash.com/photo-1544976735-a7b3b733838c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=450&q=90" alt="Cookie Crumble" class="w-100 h-100 object-cover">
+            </div>
+          </div>
+          <div class="flex-grow-1 d-flex flex-column">
+            <h5 class="fw-bold mb-2">Mocha Cookie Crumble</h5>
+            <p class="text-muted small mb-3">Frappuccino mocha với vụn bánh quy giòn tan</p>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <span class="fw-bold text-success fs-5">110.000 đ</span>
+              <button class="btn btn-success btn-sm rounded-pill add-to-cart-btn" data-item="Mocha Cookie Crumble - 110.000 đ">
+                <span class="material-icons-outlined align-middle" style="font-size:16px;">add</span> Thêm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 menu-item-card" data-category="frappuccino">
+        <div class="d-flex p-4 bg-white rounded-4 shadow-lg h-100 gap-3">
+          <div class="flex-shrink-0">
+            <div class="rounded-circle overflow-hidden" style="width:110px;height:110px;">
+              <img src="https://images.unsplash.com/photo-1553787499-6f913386027e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=450&q=90" alt="Strawberry" class="w-100 h-100 object-cover">
+            </div>
+          </div>
+          <div class="flex-grow-1 d-flex flex-column">
+            <h5 class="fw-bold mb-2">Strawberry Crème</h5>
+            <p class="text-muted small mb-3">Hương vị dâu tây tươi mát mùa hè</p>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <span class="fw-bold text-success fs-5">105.000 đ</span>
+              <button class="btn btn-success btn-sm rounded-pill add-to-cart-btn" data-item="Strawberry Crème - 105.000 đ">
+                <span class="material-icons-outlined align-middle" style="font-size:16px;">add</span> Thêm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 menu-item-card" data-category="food">
+        <div class="d-flex p-4 bg-white rounded-4 shadow-lg h-100 gap-3">
+          <div class="flex-shrink-0">
+            <div class="rounded-circle overflow-hidden" style="width:110px;height:110px;">
+              <img src="https://images.unsplash.com/photo-1555507036-ab1f40388085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=450&q=90" alt="Croissant" class="w-100 h-100 object-cover">
+            </div>
+          </div>
+          <div class="flex-grow-1 d-flex flex-column">
+            <h5 class="fw-bold mb-2">Bánh Sừng Trâu Bơ</h5>
+            <p class="text-muted small mb-3">Croissant 100% bơ, giòn xốp nhiều lớp</p>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <span class="fw-bold text-success fs-5">45.000 đ</span>
+              <button class="btn btn-success btn-sm rounded-pill add-to-cart-btn" data-item="Bánh Sừng Trâu Bơ - 45.000 đ">
+                <span class="material-icons-outlined align-middle" style="font-size:16px;">add</span> Thêm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 menu-item-card" data-category="food">
+        <div class="d-flex p-4 bg-white rounded-4 shadow-lg h-100 gap-3">
+          <div class="flex-shrink-0">
+            <div class="rounded-circle overflow-hidden" style="width:110px;height:110px;">
+              <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=450&q=90" alt="Sandwich" class="w-100 h-100 object-cover">
+            </div>
+          </div>
+          <div class="flex-grow-1 d-flex flex-column">
+            <h5 class="fw-bold mb-2">Bánh Mì Thịt & Phô Mai</h5>
+            <p class="text-muted small mb-3">Thịt xông khói, trứng và phô mai Gouda tan chảy</p>
+            <div class="d-flex justify-content-between align-items-center mt-auto">
+              <span class="fw-bold text-success fs-5">65.000 đ</span>
+              <button class="btn btn-success btn-sm rounded-pill add-to-cart-btn" data-item="Bánh Mì Thịt & Phô Mai - 65.000 đ">
+                <span class="material-icons-outlined align-middle" style="font-size:16px;">add</span> Thêm
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer-starbucks text-white mt-5">
+  <div class="container py-5">
+    <div class="row g-4 py-4">
+      <div class="col-md-3">
+        <h5 class="fw-bold mb-4">Về Chúng Tôi</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#" class="footer-link">Công ty</a></li>
+          <li class="mb-2"><a href="#" class="footer-link">Cà phê của chúng tôi</a></li>
+          <li class="mb-2"><a href="blog.html" class="footer-link">Tin tức</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h5 class="fw-bold mb-4">Dịch Vụ</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="menu.html" class="footer-link">Đặt hàng</a></li>
+          <li class="mb-2"><a href="contact.html" class="footer-link">Liên hệ</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h5 class="fw-bold mb-4">Theo Dõi</h5>
+        <div class="d-flex gap-3">
+          <a href="#" class="social-icon"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"></a>
+          <a href="#" class="social-icon"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+          <a href="#" class="social-icon"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-top border-light border-opacity-25">
+    <div class="container py-4 text-center">
+      <p class="mb-0 small text-white-50">© 2025 Starbucks Coffee Company. Phát triển bởi <span class="text-white fw-semibold">Đức Tài</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<script src="js/optimized.js"></script>
+</body>
+</html>

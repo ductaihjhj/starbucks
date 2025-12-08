@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tin Tức - Starbucks Việt Nam</title>
+  <link rel="icon" href="https://www.starbucks.com/favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="css/optimized.css">
+</head>
+<body>
+
+<!-- PREMIUM LOADING SCREEN -->
+
+<!-- SIMPLE LOADING SCREEN -->
+<div class="loading-screen">
+    <div class="loading-logo">☕</div>
+    <div class="loading-text">ĐANG TẢI</div>
+    <div class="spinner"></div>
+</div>
+
+<!-- SCROLL PROGRESS BAR -->
+
+<!-- DARK MODE TOGGLE -->
+<button id="themeToggle" class="theme-toggle" title="Chuyển chế độ sáng/tối">
+  <span class="material-icons-outlined">dark_mode</span>
+</button>
+
+<div class="back-to-top">
+  <span class="material-icons-outlined">arrow_upward</span>
+</div>
+
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <div class="logo-circle me-3">
+        <span class="material-icons-outlined fs-4">local_cafe</span>
+      </div>
+      <span class="fw-bold text-uppercase fs-5 d-none d-sm-inline">Starbucks</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="material-icons-outlined">menu</span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">Thực đơn</a></li>
+        <li class="nav-item"><a class="nav-link active" href="blog.html">Tin tức</a></li>
+        <li class="nav-item"><a class="nav-link" href="media.html">Thư viện</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-icon" title="Tìm kiếm"><span class="material-icons-outlined">search</span></button>
+        <button class="btn btn-icon position-relative" title="Giỏ hàng">
+          <span class="material-icons-outlined">shopping_bag</span>
+          <span id="cartCountBadge" class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle small d-none">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-5">
+  <section class="container mt-5 pt-4">
+    <div class="bg-white rounded-4 shadow-lg p-5 text-center">
+      <h1 class="display-4 fw-bold text-dark mb-3">Tin Tức & Câu Chuyện</h1>
+      <p class="text-muted fs-5">Khám phá những câu chuyện đầy cảm hứng và cập nhật mới nhất từ Starbucks</p>
+    </div>
+  </section>
+
+  <section class="container py-5">
+    <div class="row g-4">
+      <div class="col-12">
+        <div class="position-relative rounded-4 overflow-hidden shadow-lg">
+          <div class="ratio ratio-21x9">
+            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&h=900&q=90" alt="Featured" class="object-cover">
+          </div>
+          <div class="position-absolute top-0 start-0 w-100 h-100" style="background:linear-gradient(to top,rgba(0,0,0,0.9),transparent);"></div>
+          <div class="position-absolute bottom-0 start-0 p-5 text-white">
+            <span class="badge bg-success mb-2 px-3 py-2">NỔI BẬT</span>
+            <h2 class="display-5 fw-bold mb-3">10 Năm Hành Trình Cà Phê Bền Vững</h2>
+            <p class="lead mb-0">Kỷ niệm một thập kỷ nguồn cung ứng đạo đức và hỗ trợ nông dân toàn cầu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-5">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <article class="card blog-card shadow-lg border-0 h-100">
+          <div class="ratio ratio-4x3 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=90" alt="Blog">
+          </div>
+          <div class="card-body p-4">
+            <span class="badge bg-success mb-2">TÁC ĐỘNG</span>
+            <h3 class="fw-bold mb-2">Pha Chế Vì Tương Lai Bền Vững</h3>
+            <p class="text-muted mb-3">Cam kết bảo vệ môi trường là cốt lõi trong mọi hoạt động của chúng tôi...</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-muted small"><span class="material-icons-outlined align-middle" style="font-size:16px;">schedule</span> 5 phút đọc</span>
+              <a href="#" class="text-success fw-bold text-decoration-none">Đọc thêm →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6">
+        <article class="card blog-card shadow-lg border-0 h-100">
+          <div class="ratio ratio-4x3 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=90" alt="Blog">
+          </div>
+          <div class="card-body p-4">
+            <span class="badge bg-success mb-2">VĂN HÓA</span>
+            <h3 class="fw-bold mb-2">Xây Dựng Văn Hóa Ấm Áp</h3>
+            <p class="text-muted mb-3">Tạo ra không gian kết nối và lan tỏa năng lượng tích cực đến cộng đồng...</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-muted small"><span class="material-icons-outlined align-middle" style="font-size:16px;">schedule</span> 4 phút đọc</span>
+              <a href="#" class="text-success fw-bold text-decoration-none">Đọc thêm →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6">
+        <article class="card blog-card shadow-lg border-0 h-100">
+          <div class="ratio ratio-4x3 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=90" alt="Blog">
+          </div>
+          <div class="card-body p-4">
+            <span class="badge bg-success mb-2">CÀ PHÊ</span>
+            <h3 class="fw-bold mb-2">Nghệ Thuật Espresso</h3>
+            <p class="text-muted mb-3">Quy trình rang xay và pha chế espresso hoàn hảo từ các chuyên gia...</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-muted small"><span class="material-icons-outlined align-middle" style="font-size:16px;">schedule</span> 6 phút đọc</span>
+              <a href="#" class="text-success fw-bold text-decoration-none">Đọc thêm →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6">
+        <article class="card blog-card shadow-lg border-0 h-100">
+          <div class="ratio ratio-4x3 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=90" alt="Blog">
+          </div>
+          <div class="card-body p-4">
+            <span class="badge bg-success mb-2">MENU</span>
+            <h3 class="fw-bold mb-2">Hương Vị Mùa Thu Trở Lại</h3>
+            <p class="text-muted mb-3">Các món đặc biệt theo mùa đang chờ đón bạn tại Starbucks gần nhất...</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-muted small"><span class="material-icons-outlined align-middle" style="font-size:16px;">schedule</span> 3 phút đọc</span>
+              <a href="#" class="text-success fw-bold text-decoration-none">Đọc thêm →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer-starbucks text-white mt-5">
+  <div class="container py-5">
+    <div class="row g-4 py-4">
+      <div class="col-md-4"><h5 class="fw-bold mb-3">Starbucks Vietnam</h5><p class="text-white-50">Mang đến trải nghiệm cà phê tuyệt vời nhất</p></div>
+      <div class="col-md-4">
+        <h5 class="fw-bold mb-3">Liên Kết</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="index.html" class="footer-link">Trang chủ</a></li>
+          <li class="mb-2"><a href="menu.html" class="footer-link">Thực đơn</a></li>
+          <li class="mb-2"><a href="contact.html" class="footer-link">Liên hệ</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5 class="fw-bold mb-3">Theo Dõi</h5>
+        <div class="d-flex gap-3">
+          <a href="#" class="social-icon"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="IG"></a>
+          <a href="#" class="social-icon"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="FB"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-top border-light border-opacity-25">
+    <div class="container py-4 text-center">
+      <p class="mb-0 small text-white-50">© 2025 Starbucks. Phát triển bởi <span class="text-white fw-semibold">Đức Tài</span></p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<script src="js/optimized.js"></script>
+</body>
+</html>

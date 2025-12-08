@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liên Hệ - Starbucks Việt Nam</title>
+  <link rel="icon" href="https://www.starbucks.com/favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  
+  
+  <link rel="stylesheet" href="css/optimized.css">
+</head>
+<body>
+
+<!-- PREMIUM LOADING SCREEN -->
+
+<!-- SIMPLE LOADING SCREEN -->
+<div class="loading-screen">
+    <div class="loading-logo">☕</div>
+    <div class="loading-text">ĐANG TẢI</div>
+    <div class="spinner"></div>
+</div>
+
+<!-- SCROLL PROGRESS BAR -->
+
+<!-- DARK MODE TOGGLE -->
+<button id="themeToggle" class="theme-toggle" title="Chuyển chế độ sáng/tối">
+  <span class="material-icons-outlined">dark_mode</span>
+</button>
+
+<div class="back-to-top">
+  <span class="material-icons-outlined">arrow_upward</span>
+</div>
+
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <div class="logo-circle me-3"><span class="material-icons-outlined fs-4">local_cafe</span></div>
+      <span class="fw-bold text-uppercase fs-5 d-none d-sm-inline">Starbucks</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="material-icons-outlined">menu</span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">Thực đơn</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html">Tin tức</a></li>
+        <li class="nav-item"><a class="nav-link" href="media.html">Thư viện</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Liên hệ</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-icon" title="Tìm kiếm"><span class="material-icons-outlined">search</span></button>
+        <button class="btn btn-icon position-relative" title="Giỏ hàng">
+          <span class="material-icons-outlined">shopping_bag</span>
+          <span id="cartCountBadge" class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle small d-none">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-5">
+  <section class="container mt-5 pt-4">
+    <div class="bg-white rounded-4 shadow-lg p-5 text-center">
+      <h1 class="display-4 fw-bold text-dark mb-3">Dịch Vụ Khách Hàng</h1>
+      <p class="text-muted fs-5">Chúng tôi luôn sẵn sàng lắng nghe ý kiến và phản hồi của bạn</p>
+    </div>
+  </section>
+
+  <section class="container py-5">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="bg-white rounded-4 shadow-lg p-5 h-100">
+          <h2 class="fw-bold mb-4">Gửi Tin Nhắn</h2>
+          <form id="contactForm">
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Họ và Tên</label>
+              <input type="text" class="form-control form-control-lg rounded-pill" id="name" required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Email</label>
+              <input type="email" class="form-control form-control-lg rounded-pill" id="email" required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Nội Dung</label>
+              <textarea class="form-control rounded-4" id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success btn-lg rounded-pill px-5 w-100">
+              <span class="material-icons-outlined align-middle me-2">send</span>
+              Gửi Yêu Cầu
+            </button>
+            <div id="contactStatus"></div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="d-flex flex-column gap-4 h-100">
+          <div class="bg-white rounded-4 shadow-lg p-4">
+            <div class="d-flex gap-3">
+              <div class="flex-shrink-0">
+                <div class="rounded-circle bg-success bg-opacity-10 p-3">
+                  <span class="material-icons-outlined text-success fs-3">location_on</span>
+                </div>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">Văn Phòng</h5>
+                <p class="text-muted mb-0">Quận 1, TP. Hồ Chí Minh<br>Việt Nam</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-4 shadow-lg p-4">
+            <div class="d-flex gap-3">
+              <div class="flex-shrink-0">
+                <div class="rounded-circle bg-success bg-opacity-10 p-3">
+                  <span class="material-icons-outlined text-success fs-3">phone</span>
+                </div>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">Tổng Đài</h5>
+                <p class="fs-5 fw-bold text-success mb-1">1900 123 456</p>
+                <p class="text-muted small mb-0">Thứ 2 – Thứ 6: 8:00 – 17:00</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-4 shadow-lg p-4">
+            <div class="d-flex gap-3">
+              <div class="flex-shrink-0">
+                <div class="rounded-circle bg-success bg-opacity-10 p-3">
+                  <span class="material-icons-outlined text-success fs-3">email</span>
+                </div>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-2">Email</h5>
+                <p class="text-muted mb-0"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bfdccacccbd0d2dacdccdacdc9d6dcdaffcccbdecdddcadcd4cc91c9d1">[email&#160;protected]</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-starbucks rounded-4 p-4 text-white flex-grow-1">
+            <h5 class="fw-bold mb-3">Tìm Cửa Hàng Gần Nhất</h5>
+            <p class="mb-3 opacity-75">Khám phá cửa hàng Starbucks gần bạn để trải nghiệm không gian ấm cúng và đồ uống tuyệt vời</p>
+            <button class="btn btn-light rounded-pill px-4">
+              <span class="material-icons-outlined align-middle me-2">map</span>
+              Mở Bản Đồ
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer-starbucks text-white mt-5">
+  <div class="container py-5 text-center">
+    <p class="mb-0 text-white-50">© 2025 Starbucks. Phát triển bởi <span class="text-white fw-semibold">Đức Tài</span></p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<script src="js/optimized.js"></script>
+</body>
+</html>
