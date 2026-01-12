@@ -713,3 +713,12 @@ html {
 [data-theme="dark"] .menu-item-card .bg-white {
   color: #111 !important;
 }
+
+[data-theme="dark"] #mainNavbar .nav-link,
+body.dark #mainNavbar .nav-link{
+  color: #fff !important;
+}
+[data-theme="dark"] #mainNavbar .navbar-brand,
+body.dark #mainNavbar .navbar-brand{
+  color: #fff !important;
+}
