@@ -709,3 +709,7 @@ html {
   transform: translateZ(0);
   backface-visibility: hidden;
 }
+
+[data-theme="dark"] .menu-item-card .bg-white {
+  color: #111 !important;
+}
