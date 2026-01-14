@@ -1,0 +1,439 @@
+/* ========================================
+   FIXES & ENHANCEMENTS
+   Chi tiết bổ sung để đảm bảo chính xác 100%
+   ======================================== */
+
+/* ========== FIX NAVBAR COLLAPSE ========== */
+.navbar-collapse {
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.navbar-collapse:not(.show) {
+  max-height: 0;
+}
+
+.navbar-collapse.show {
+  max-height: 500px;
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    max-height: none !important;
+  }
+}
+
+/* ========== FIX TOAST ANIMATION ========== */
+.toast {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ========== FIX MODAL ANIMATION ========== */
+.modal {
+  background: rgba(0, 0, 0, 0);
+  transition: background-color 0.15s ease;
+}
+
+.modal.show {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal .modal-dialog {
+  transform: scale(0.8) translateY(-50px);
+  transition: transform 0.3s ease;
+  opacity: 0;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* ========== FIX BUTTON HOVER STATES ========== */
+.btn-success {
+  transition: all 0.2s ease;
+}
+
+.btn-success:hover {
+  background-color: #008d54;
+  border-color: #008d54;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 168, 98, 0.3);
+}
+
+.btn-success:active {
+  transform: translateY(0);
+}
+
+/* ========== FIX CARD HOVER EFFECTS ========== */
+.favorite-card,
+.blog-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.favorite-card:hover,
+.blog-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ========== FIX GLASS CARD STYLING ========== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== FIX HOT BADGE ========== */
+.hot-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #ff6b6b, #ff4757);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 8px rgba(255, 71, 87, 0.4);
+  animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(255, 71, 87, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.6);
+  }
+}
+
+/* ========== FIX FRAPPU IMAGE WRAPPER ========== */
+.frappu-img-wrapper {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.frappu-img-wrapper:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+.frappu-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ========== FIX BG BUBBLES ========== */
+.bg-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 6s ease-in-out infinite;
+}
+
+.bg-bubble-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+  animation-delay: 0s;
+}
+
+.bg-bubble-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -50px;
+  left: -50px;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* ========== FIX FORM CONTROLS ========== */
+.form-control:focus {
+  border-color: #00A862;
+  box-shadow: 0 0 0 0.25rem rgba(0, 168, 98, 0.25);
+  outline: 0;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ========== FIX BADGE POSITIONING ========== */
+.position-absolute.badge {
+  z-index: 10;
+}
+
+/* ========== FIX SOCIAL ICONS ========== */
+.social-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon:hover img {
+  opacity: 1;
+}
+
+/* ========== FIX MENU FILTER ACTIVE STATE ========== */
+.menu-filter-btn.active {
+  background: #00704A !important;
+  color: white !important;
+  border-color: #00704A !important;
+  box-shadow: 0 4px 12px rgba(0, 112, 74, 0.3);
+}
+
+/* ========== FIX MEDIA ITEM CURSOR ========== */
+.media-item {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.media-item::after {
+  content: '🔍';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 48px;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.media-item:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+/* ========== FIX RATIO ASPECT CLASSES ========== */
+.ratio-21x9::before {
+  padding-top: calc(9 / 21 * 100%);
+}
+
+.ratio-4x3::before {
+  padding-top: calc(3 / 4 * 100%);
+}
+
+.ratio-16x9::before {
+  padding-top: calc(9 / 16 * 100%);
+}
+
+/* ========== FIX OVERFLOW HIDDEN ========== */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.rounded-circle.overflow-hidden {
+  overflow: hidden;
+}
+
+/* ========== FIX TEXT BG SUCCESS ========== */
+.text-bg-success {
+  background-color: #00A862 !important;
+  color: #fff !important;
+}
+
+/* ========== FIX BORDER LIGHT OPACITY ========== */
+.border-light.border-opacity-25 {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* ========== FIX NAVBAR BRAND DISPLAY ========== */
+@media (max-width: 575.98px) {
+  .d-none.d-sm-inline {
+    display: none !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .d-none.d-sm-inline {
+    display: inline !important;
+  }
+}
+
+/* ========== FIX FOOTER LINK COLORS ========== */
+.footer-link {
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: #fff !important;
+  transform: translateX(3px);
+}
+
+/* ========== FIX LOADING SCREEN ========== */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1E3932, #00704A);
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* ========== FIX ICON ALIGNMENT ========== */
+.icon,
+[class*="icon-"] {
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* ========== FIX BTN CLOSE ========== */
+.btn-close {
+  width: 1em;
+  height: 1em;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0.25rem;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.btn-close::before {
+  content: "×";
+  font-size: 1.5rem;
+  line-height: 1;
+  color: inherit;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
+
+.btn-close-white {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* ========== FIX ROUNDED UTILITIES ========== */
+.rounded-4 {
+  border-radius: 1rem !important;
+}
+
+/* ========== DARK MODE FIXES ========== */
+[data-theme="dark"] body {
+  background-color: #1E293B;
+  color: #F8FAFC;
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .bg-white {
+  background-color: #334155 !important;
+  color: #F8FAFC;
+}
+
+[data-theme="dark"] .text-dark {
+  color: #F8FAFC !important;
+}
+
+[data-theme="dark"] .text-muted {
+  color: #94a3b8 !important;
+}
+
+[data-theme="dark"] #mainNavbar {
+  background: rgba(30, 41, 59, 0.95) !important;
+}
+
+[data-theme="dark"] .form-control {
+  background-color: #475569;
+  border-color: #64748b;
+  color: #F8FAFC;
+}
+
+[data-theme="dark"] .form-control:focus {
+  background-color: #475569;
+  color: #F8FAFC;
+}
+
+/* ========== SMOOTH TRANSITIONS ========== */
+* {
+  transition-property: background-color, color, border-color;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in-out;
+}
+
+*:hover,
+*:focus {
+  transition-property: all;
+}
+
+/* ========== Z-INDEX MANAGEMENT ========== */
+.navbar {
+  z-index: 1030;
+}
+
+.modal {
+  z-index: 1050;
+}
+
+.toast {
+  z-index: 1080;
+}
+
+.loading-screen {
+  z-index: 10000;
+}
+
+/* ========== PERFORMANCE OPTIMIZATIONS ========== */
+.gpu-accelerated,
+.card,
+.btn,
+.navbar {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
