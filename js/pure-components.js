@@ -11,12 +11,12 @@ class NavbarToggle {
   }
   
   init() {
-    const toggleButtons = document.querySelectorAll('[data-toggle="collapse"]');
+    const toggleButtons = document.querySelectorAll('[data-bs-toggle="collapse"]');
     
     toggleButtons.forEach(button => {
       button.addEventListener('click', (e) => {
         e.stopPropagation();
-        const targetId = button.getAttribute('data-target');
+        const targetId = button.getAttribute('data-bs-target');
         if (targetId) {
           const target = document.querySelector(targetId);
           if (target) {

@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liên Hệ - Starbucks Việt Nam</title>
   <link rel="icon" href="https://www.starbucks.com/favicon.ico">
-  <!-- Pure CSS - No External Dependencies -->
-  <link rel="stylesheet" href="css/bootstrap-replacement.css">
-  <link rel="stylesheet" href="css/custom-icons.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="fonts/material-icons-full.css" rel="stylesheet">
+  
+  
   <link rel="stylesheet" href="css/optimized.css">
-  <link rel="stylesheet" href="css/fixes.css">
 </head>
 <body>
 
@@ -26,21 +26,21 @@
 
 <!-- DARK MODE TOGGLE -->
 <button id="themeToggle" class="theme-toggle" title="Chuyển chế độ sáng/tối">
-  <span class="icon-dark-mode-svg"></span>
+  <span class="material-icons-outlined">dark_mode</span>
 </button>
 
 <div class="back-to-top">
-  <span class="icon-arrow-up-svg"></span>
+  <span class="material-icons-outlined">arrow_upward</span>
 </div>
 
 <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent py-3">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <div class="logo-circle me-3"><span class="icon-coffee"></span></div>
+      <div class="logo-circle me-3"><span class="material-icons-outlined fs-4">local_cafe</span></div>
       <span class="fw-bold text-uppercase fs-5 d-none d-sm-inline">Starbucks</span>
     </a>
-    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#mainNav">
-      <span class="icon-menu-svg"></span>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="material-icons-outlined">menu</span>
     </button>
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
@@ -51,9 +51,9 @@
         <li class="nav-item"><a class="nav-link active" href="contact.html">Liên hệ</a></li>
       </ul>
       <div class="d-flex align-items-center gap-2">
-        <button class="btn btn-icon" title="Tìm kiếm"><span class="icon-search-svg"></span></button>
+        <button class="btn btn-icon" title="Tìm kiếm"><span class="material-icons-outlined">search</span></button>
         <button class="btn btn-icon position-relative" title="Giỏ hàng">
-          <span class="icon-cart-svg"></span>
+          <span class="material-icons-outlined">shopping_bag</span>
           <span id="cartCountBadge" class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle small d-none">0</span>
         </button>
       </div>
@@ -88,7 +88,7 @@
               <textarea class="form-control rounded-4" id="message" rows="5" required></textarea>
             </div>
             <button type="submit" class="btn btn-success btn-lg rounded-pill px-5 w-100">
-              <span class="icon icon-send align-middle me-2"></span>
+              <span class="material-icons-outlined align-middle me-2">send</span>
               Gửi Yêu Cầu
             </button>
             <div id="contactStatus"></div>
@@ -102,7 +102,7 @@
             <div class="d-flex gap-3">
               <div class="flex-shrink-0">
                 <div class="rounded-circle bg-success bg-opacity-10 p-3">
-                  <span class="icon icon-location-on text-success fs-3"></span>
+                  <span class="material-icons-outlined text-success fs-3">location_on</span>
                 </div>
               </div>
               <div>
@@ -116,7 +116,7 @@
             <div class="d-flex gap-3">
               <div class="flex-shrink-0">
                 <div class="rounded-circle bg-success bg-opacity-10 p-3">
-                  <span class="icon icon-phone text-success fs-3"></span>
+                  <span class="material-icons-outlined text-success fs-3">phone</span>
                 </div>
               </div>
               <div>
@@ -131,7 +131,7 @@
             <div class="d-flex gap-3">
               <div class="flex-shrink-0">
                 <div class="rounded-circle bg-success bg-opacity-10 p-3">
-                  <span class="icon icon-email text-success fs-3"></span>
+                  <span class="material-icons-outlined text-success fs-3">email</span>
                 </div>
               </div>
               <div>
@@ -145,7 +145,7 @@
             <h5 class="fw-bold mb-3">Tìm Cửa Hàng Gần Nhất</h5>
             <p class="mb-3 opacity-75">Khám phá cửa hàng Starbucks gần bạn để trải nghiệm không gian ấm cúng và đồ uống tuyệt vời</p>
             <button class="btn btn-light rounded-pill px-4">
-              <span class="icon icon-map align-middle me-2"></span>
+              <span class="material-icons-outlined align-middle me-2">map</span>
               Mở Bản Đồ
             </button>
           </div>
@@ -161,8 +161,10 @@
   </div>
 </footer>
 
-<!-- Pure JavaScript - No Bootstrap dependency -->
-<script src="js/pure-components.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/bootstrap.bundle.min.js"></script>
+
+
+
 <script src="js/optimized.js"></script>
 </body>
 </html>
