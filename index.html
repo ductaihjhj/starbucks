@@ -9,13 +9,9 @@
   <!-- Favicon -->
   <link rel="icon" href="https://www.starbucks.com/favicon.ico">  
 
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-  
-  <!-- Optimized CSS -->
+  <!-- Pure CSS - No External Dependencies -->
+  <link rel="stylesheet" href="css/bootstrap-replacement.css">
+  <link rel="stylesheet" href="css/custom-icons.css">
   <link rel="stylesheet" href="css/optimized.css">
 </head>
 <body>
@@ -29,12 +25,12 @@
 
 <!-- DARK MODE TOGGLE -->
 <button id="themeToggle" class="theme-toggle" title="Chuyển chế độ sáng/tối">
-  <span class="material-icons-outlined">dark_mode</span>
+  <span class="icon-dark-mode-svg"></span>
 </button>
 
 <!-- BACK TO TOP -->
 <div class="back-to-top">
-  <span class="material-icons-outlined">arrow_upward</span>
+  <span class="icon-arrow-up-svg"></span>
 </div>
 
 <!-- NAVBAR -->
@@ -42,16 +38,16 @@
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="index.html">
       <div class="logo-circle me-3">
-        <span class="material-icons-outlined fs-4">local_cafe</span>
+        <span class="icon-coffee"></span>
       </div>
       <span class="fw-bold text-uppercase fs-5 d-none d-sm-inline">Starbucks</span>
     </a>
 
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-      <span class="material-icons-outlined">menu</span>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#mainNav">
+      <span class="icon-menu-svg"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="mainNav">
+    <div class="navbar-collapse" id="mainNav">
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" href="index.html">Trang chủ</a>
@@ -72,10 +68,10 @@
 
       <div class="d-flex align-items-center gap-2">
         <button class="btn btn-icon" title="Tìm kiếm">
-          <span class="material-icons-outlined">search</span>
+          <span class="icon-search-svg"></span>
         </button>
         <button class="btn btn-icon position-relative" title="Giỏ hàng">
-          <span class="material-icons-outlined">shopping_bag</span>
+          <span class="icon-cart-svg"></span>
           <span id="cartCountBadge" class="badge rounded-pill bg-danger position-absolute top-0 start-100 translate-middle small d-none">0</span>
         </button>
       </div>
@@ -90,7 +86,7 @@
       <div class="toast-body fw-semibold" id="cartToastMessage">
         Đã thêm vào giỏ hàng!
       </div>
-      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-dismiss="toast"></button>
     </div>
   </div>
 </div>
@@ -118,11 +114,11 @@
         </p>
         <div class="d-flex flex-column flex-sm-row gap-3">
           <a href="menu.html" class="btn btn-primary btn-lg px-5">
-            <span class="material-icons-outlined align-middle me-2">shopping_cart</span>
+            <span class="icon-cart-svg align-middle me-2"></span>
             Đặt Ngay
           </a>
           <a href="menu.html" class="btn btn-light btn-lg px-5">
-            <span class="material-icons-outlined align-middle me-2">restaurant_menu</span>
+            <span class="icon icon-restaurant align-middle me-2"></span>
             Xem Menu
           </a>
         </div>
@@ -156,7 +152,7 @@
               sữa tươi nguyên chất, tạo nên hương vị ngọt ngào khó cưỡng.
             </p>
             <button class="btn btn-light btn-sm px-4 add-to-cart-btn" data-item="Caffè Mocha - 85.000 đ">
-              <span class="material-icons-outlined align-middle me-1" style="font-size:18px;">add_shopping_cart</span>
+              <span class="icon icon-add-shopping-cart align-middle me-1" style="font-size:18px;"></span>
               Đặt Món - 85.000 đ
             </button>
           </div>
@@ -177,7 +173,7 @@
               và phủ lớp sốt caramel béo ngậy, tạo nên ly cà phê nghệ thuật.
             </p>
             <button class="btn btn-light btn-sm px-4 add-to-cart-btn" data-item="Caramel Macchiato - 80.000 đ">
-              <span class="material-icons-outlined align-middle me-1" style="font-size:18px;">add_shopping_cart</span>
+              <span class="icon icon-add-shopping-cart align-middle me-1" style="font-size:18px;"></span>
               Đặt Món - 80.000 đ
             </button>
           </div>
@@ -198,7 +194,7 @@
               được đánh nóng hoàn hảo. Trải nghiệm hương vị cổ điển của Ý.
             </p>
             <button class="btn btn-light btn-sm px-4 add-to-cart-btn" data-item="Cappuccino - 75.000 đ">
-              <span class="material-icons-outlined align-middle me-1" style="font-size:18px;">add_shopping_cart</span>
+              <span class="icon icon-add-shopping-cart align-middle me-1" style="font-size:18px;"></span>
               Đặt Món - 75.000 đ
             </button>
           </div>
@@ -215,7 +211,7 @@
 
       <div class="text-center mb-5 position-relative">
         <span class="badge bg-light text-success px-4 py-2 mb-3 fs-6 fw-bold">
-          <span class="material-icons-outlined align-middle me-2" style="font-size:20px;">ac_unit</span>
+          <span class="icon icon-ac-unit align-middle me-2" style="font-size:20px;"></span>
           Mùa Hè Sảng Khoái
         </span>
         <h2 class="display-4 fw-bold mb-3">Frappuccino® Đá Xay</h2>
@@ -233,14 +229,14 @@
               <img src="./assets/id1.jpg"
                    alt="Mocha Cookie Crumble">
               <span class="hot-badge">
-                <span class="material-icons-outlined" style="font-size:14px;">whatshot</span>
+                <span class="icon icon-whatshot" style="font-size:14px;"></span>
                 HOT
               </span>
             </div>
             <h5 class="fw-bold mb-2 fs-4">Mocha Cookie Crumble</h5>
             <p class="mb-3 opacity-75">Frappuccino® thơm ngon với vụn bánh quy</p>
             <button class="btn btn-light px-4 fw-bold add-to-cart-btn" data-item="Mocha Cookie Crumble - 110.000 đ">
-              <span class="material-icons-outlined align-middle me-2" style="font-size:18px;">add_shopping_cart</span>
+              <span class="icon icon-add-shopping-cart align-middle me-2" style="font-size:18px;"></span>
               110.000 đ
             </button>
           </div>
@@ -257,7 +253,7 @@
             <h5 class="fw-bold mb-2 fs-4">Strawberry Crème</h5>
             <p class="mb-3 opacity-75">Hương vị dâu tây tươi mát mùa hè</p>
             <button class="btn btn-light px-4 fw-bold add-to-cart-btn" data-item="Strawberry Crème - 105.000 đ">
-              <span class="material-icons-outlined align-middle me-2" style="font-size:18px;">add_shopping_cart</span>
+              <span class="icon icon-add-shopping-cart align-middle me-2" style="font-size:18px;"></span>
               105.000 đ
             </button>
           </div>
@@ -269,14 +265,14 @@
             <div class="frappu-img-wrapper mx-auto mb-3 position-relative">
               <img src="./assets/id3.jpg">
               <span class="hot-badge">
-                <span class="material-icons-outlined" style="font-size:14px;">whatshot</span>
+                <span class="icon icon-whatshot" style="font-size:14px;"></span>
                 HOT
               </span>
             </div>
             <h5 class="fw-bold mb-2 fs-4">Caramel Ribbon Crunch</h5>
             <p class="mb-3 opacity-75">Sốt caramel đậm đà với lớp crunch giòn tan</p>
             <button class="btn btn-light px-4 fw-bold add-to-cart-btn" data-item="Caramel Ribbon Crunch - 110.000 đ">
-              <span class="material-icons-outlined align-middle me-2" style="font-size:18px;">add_shopping_cart</span>
+              <span class="icon icon-add-shopping-cart align-middle me-2" style="font-size:18px;"></span>
               110.000 đ
             </button>
           </div>
@@ -294,7 +290,7 @@
       </div>
       <a href="blog.html" class="btn btn-outline-success rounded-pill px-4 mt-3 mt-md-0">
         Xem Tất Cả
-        <span class="material-icons-outlined align-middle ms-2" style="font-size:18px;">arrow_forward</span>
+        <span class="icon icon-arrow-forward align-middle ms-2" style="font-size:18px;"></span>
       </a>
     </div>
 
@@ -314,7 +310,7 @@
             </p>
             <div class="d-flex justify-content-between align-items-center">
               <span class="text-muted small">
-                <span class="material-icons-outlined align-middle" style="font-size:16px;">schedule</span>
+                <span class="icon icon-schedule align-middle" style="font-size:16px;"></span>
                 5 phút đọc
               </span>
               <a href="blog.html" class="text-success fw-bold text-decoration-none">
@@ -340,7 +336,7 @@
             </p>
             <div class="d-flex justify-content-between align-items-center">
               <span class="text-muted small">
-                <span class="material-icons-outlined align-middle" style="font-size:16px;">schedule</span>
+                <span class="icon icon-schedule align-middle" style="font-size:16px;"></span>
                 4 phút đọc
               </span>
               <a href="blog.html" class="text-success fw-bold text-decoration-none">
@@ -366,7 +362,7 @@
             </p>
             <div class="d-flex justify-content-between align-items-center">
               <span class="text-muted small">
-                <span class="material-icons-outlined align-middle" style="font-size:16px;">schedule</span>
+                <span class="icon icon-schedule align-middle" style="font-size:16px;"></span>
                 6 phút đọc
               </span>
               <a href="blog.html" class="text-success fw-bold text-decoration-none">
@@ -394,7 +390,7 @@
           <div class="card border-0 shadow-lg h-100 p-4 text-center">
             <div class="mb-3">
               <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-success bg-opacity-10 p-4">
-                <span class="material-icons-outlined text-success" style="font-size:48px;">eco</span>
+                <span class="icon icon-eco text-success" style="font-size:48px;"></span>
               </div>
             </div>
             <h5 class="fw-bold mb-3">Bền Vững</h5>
@@ -408,7 +404,7 @@
           <div class="card border-0 shadow-lg h-100 p-4 text-center">
             <div class="mb-3">
               <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-success bg-opacity-10 p-4">
-                <span class="material-icons-outlined text-success" style="font-size:48px;">favorite</span>
+                <span class="icon icon-favorite text-success" style="font-size:48px;"></span>
               </div>
             </div>
             <h5 class="fw-bold mb-3">Chất Lượng</h5>
@@ -422,7 +418,7 @@
           <div class="card border-0 shadow-lg h-100 p-4 text-center">
             <div class="mb-3">
               <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-success bg-opacity-10 p-4">
-                <span class="material-icons-outlined text-success" style="font-size:48px;">groups</span>
+                <span class="icon icon-groups text-success" style="font-size:48px;"></span>
               </div>
             </div>
             <h5 class="fw-bold mb-3">Cộng Đồng</h5>
@@ -521,10 +517,8 @@
   </div>
 </footer>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Optimized JS -->
+<!-- Pure JavaScript - No Bootstrap dependency -->
+<script src="js/pure-components.js"></script>
 <script src="js/optimized.js"></script>
 
 </body>

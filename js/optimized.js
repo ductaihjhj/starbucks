@@ -38,9 +38,9 @@ const currentTheme = localStorage.getItem('theme') || 'light';
 // Set initial theme
 document.documentElement.setAttribute('data-theme', currentTheme);
 if (themeToggle) {
-  const icon = themeToggle.querySelector('.material-icons-outlined');
-  if (icon) {
-    icon.textContent = currentTheme === 'dark' ? 'light_mode' : 'dark_mode';
+  const iconElement = themeToggle.querySelector('[class*="icon"]');
+  if (iconElement) {
+    iconElement.className = currentTheme === 'dark' ? 'icon-light-mode-svg' : 'icon-dark-mode-svg';
   }
 }
 
@@ -53,9 +53,9 @@ if (themeToggle) {
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     
-    const icon = themeToggle.querySelector('.material-icons-outlined');
-    if (icon) {
-      icon.textContent = newTheme === 'dark' ? 'light_mode' : 'dark_mode';
+    const iconElement = themeToggle.querySelector('[class*="icon"]');
+    if (iconElement) {
+      iconElement.className = newTheme === 'dark' ? 'icon-light-mode-svg' : 'icon-dark-mode-svg';
     }
   });
 }
@@ -130,7 +130,8 @@ class ShoppingCart {
     
     if (toastEl && toastBody) {
       toastBody.textContent = message;
-      const toast = new bootstrap.Toast(toastEl, {
+      // Use custom Toast class instead of bootstrap
+      const toast = new Toast(toastEl, {
         autohide: true,
         delay: 3000
       });
@@ -276,9 +277,9 @@ if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    const name = document.getElementById('contactName').value;
-    const email = document.getElementById('contactEmail').value;
-    const message = document.getElementById('contactMessage').value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
     
     if (name && email && message) {
       // Show success message
@@ -300,7 +301,7 @@ searchModal.innerHTML = `
     <div class="modal-content">
       <div class="modal-header border-0">
         <h5 class="modal-title">Tìm kiếm</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <button type="button" class="btn-close" data-dismiss="modal"></button>
       </div>
       <div class="modal-body">
         <input type="text" class="form-control form-control-lg" placeholder="Tìm kiếm sản phẩm...">
@@ -311,10 +312,10 @@ searchModal.innerHTML = `
 
 if (searchBtn) {
   document.body.appendChild(searchModal);
-  const bsModal = new bootstrap.Modal(searchModal);
+  const customModal = new Modal(searchModal);
   
   searchBtn.addEventListener('click', () => {
-    bsModal.show();
+    customModal.show();
     setTimeout(() => {
       searchModal.querySelector('input').focus();
     }, 300);
