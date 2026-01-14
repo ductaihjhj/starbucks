@@ -14,12 +14,27 @@ class NavbarToggle {
     const toggleButtons = document.querySelectorAll('[data-toggle="collapse"]');
     
     toggleButtons.forEach(button => {
-      button.addEventListener('click', () => {
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
         const targetId = button.getAttribute('data-target');
         if (targetId) {
           const target = document.querySelector(targetId);
           if (target) {
-            target.classList.toggle('show');
+            const isOpen = target.classList.contains('show');
+            
+            // Close all other collapses
+            document.querySelectorAll('.navbar-collapse.show').forEach(el => {
+              if (el !== target) {
+                el.classList.remove('show');
+              }
+            });
+            
+            // Toggle current
+            if (isOpen) {
+              target.classList.remove('show');
+            } else {
+              target.classList.add('show');
+            }
           }
         }
       });
@@ -30,6 +45,16 @@ class NavbarToggle {
       const navCollapse = document.querySelector('.navbar-collapse.show');
       if (navCollapse && !e.target.closest('.navbar')) {
         navCollapse.classList.remove('show');
+      }
+    });
+    
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const navCollapse = document.querySelector('.navbar-collapse.show');
+        if (navCollapse) {
+          navCollapse.classList.remove('show');
+        }
       }
     });
   }
@@ -43,13 +68,30 @@ class Toast {
       autohide: options.autohide !== false,
       delay: options.delay || 3000
     };
+    this.timeoutId = null;
+    this.init();
+  }
+  
+  init() {
+    // Close button handler
+    const closeBtn = this.element.querySelector('[data-dismiss="toast"]');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => this.hide());
+    }
   }
   
   show() {
+    // Clear any existing timeout
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
+    
+    // Show with animation
     this.element.classList.add('show');
+    this.element.style.display = 'block';
     
     if (this.options.autohide) {
-      setTimeout(() => {
+      this.timeoutId = setTimeout(() => {
         this.hide();
       }, this.options.delay);
     }
@@ -57,6 +99,19 @@ class Toast {
   
   hide() {
     this.element.classList.remove('show');
+    
+    // Clear timeout
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+      this.timeoutId = null;
+    }
+    
+    // Hide after animation
+    setTimeout(() => {
+      if (!this.element.classList.contains('show')) {
+        this.element.style.display = 'none';
+      }
+    }, 300);
   }
 }
 
@@ -64,6 +119,7 @@ class Toast {
 class Modal {
   constructor(element) {
     this.element = element;
+    this.isShowing = false;
     this.init();
   }
   
@@ -71,7 +127,10 @@ class Modal {
     // Close buttons
     const closeBtns = this.element.querySelectorAll('[data-dismiss="modal"]');
     closeBtns.forEach(btn => {
-      btn.addEventListener('click', () => this.hide());
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.hide();
+      });
     });
     
     // Click outside to close
@@ -82,31 +141,45 @@ class Modal {
     });
     
     // ESC key to close
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.element.classList.contains('show')) {
+    this.escapeHandler = (e) => {
+      if (e.key === 'Escape' && this.isShowing) {
         this.hide();
       }
-    });
+    };
   }
   
   show() {
-    this.element.classList.add('show');
+    if (this.isShowing) return;
+    
+    this.isShowing = true;
     this.element.style.display = 'block';
     document.body.style.overflow = 'hidden';
     
-    setTimeout(() => {
-      this.element.classList.add('fade-in');
-    }, 10);
+    // Add ESC key listener
+    document.addEventListener('keydown', this.escapeHandler);
+    
+    // Trigger animation
+    requestAnimationFrame(() => {
+      this.element.classList.add('show');
+    });
   }
   
   hide() {
-    this.element.classList.remove('fade-in');
+    if (!this.isShowing) return;
     
+    this.isShowing = false;
+    this.element.classList.remove('show');
+    
+    // Remove ESC key listener
+    document.removeEventListener('keydown', this.escapeHandler);
+    
+    // Hide after animation
     setTimeout(() => {
-      this.element.classList.remove('show');
-      this.element.style.display = 'none';
-      document.body.style.overflow = '';
-    }, 150);
+      if (!this.isShowing) {
+        this.element.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }, 300);
   }
 }
 
